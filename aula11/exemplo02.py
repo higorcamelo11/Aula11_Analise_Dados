@@ -11,6 +11,9 @@ try:
     df_ocorrencias = pd.read_csv(ENDERECO_DADOS, sep=';', encoding='iso-8859-1')
     
     
+    # Por ano: 2025 e 2026
+    df_ocorrencias = df_ocorrencias[df_ocorrencias['ano'].isin([2025, 2026])]
+    
     # Por região: Baixada Fluminense
     df_ocorrencias = df_ocorrencias[df_ocorrencias['regiao'] == 'Interior']
     
