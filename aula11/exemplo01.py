@@ -410,10 +410,24 @@ try:
     
     
     # HISTOGRAMA # Gráfico de Frequência
-    plt.hist(array_roubo_veiculo, bins=100)
-    plt.axvline(media_roubo_veiculo, color='green', linewidth=1)
-    plt.axvline(mediana_roubo_veiculo, color='orange', linewidth=1)
+    plt.hist(array_roubo_veiculo, bins=393)
+    plt.axvline(media_roubo_veiculo, color='green', linewidth=1, label='Média')
+    plt.axvline(mediana_roubo_veiculo, color='orange', linewidth=1, label='Mediana')
+    plt.legend()  # legenda / tabela das legendas
     
+    
+    
+    contagens, limites = np.histogram(array_roubo_veiculo, bins=393)
+    
+    print('\nFaixas do Histograma')
+    for i in range(len(contagens)):
+        
+        if contagens[i] > 0:
+            print(
+                f'Faixa {i+1} - '
+                f'{limites[i]:.0f} até {limites[i+1]:.0f} roubos'
+                f'=> {contagens[i]} Municípios'              
+                )
     
     
     
@@ -421,4 +435,4 @@ try:
     plt.show()
     
 except Exception as e:
-    print(f'Erro ao pplotar o gráfico: {e}')
+    print(f'Erro ao plotar o gráfico: {e}')
